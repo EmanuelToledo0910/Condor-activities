@@ -1,4 +1,4 @@
-package Activities.act1;
+package Activities.actCheckDigit;
 
 public class Numero {
     private int valor;

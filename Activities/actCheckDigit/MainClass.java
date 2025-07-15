@@ -1,4 +1,4 @@
-package Activities.act1;
+package Activities.actCheckDigit;
 
 public class MainClass {
     public static void main(String[] args) {

@@ -1,5 +1,4 @@
-package Activities.act1;
-import java.util.List;
+package Activities.actCheckDigit;
 
 public class Operaciones {
     public Operaciones (){}
