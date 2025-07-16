@@ -1,5 +1,7 @@
 package Activities.actDigitoVerificador;
 
+import javax.lang.model.type.NullType;
+
 public class Operaciones {
     public Operaciones (){}
 
