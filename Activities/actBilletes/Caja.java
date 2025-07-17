@@ -7,7 +7,7 @@ public class Caja {
     private List<Billete> billetes = new ArrayList<Billete>();
 
     public Caja(List<Billete> billetes) {
-        AgregarBillete(billetes);
+        AgregarBilletes(billetes);
     }
 
     public Caja (){}
@@ -20,7 +20,7 @@ public class Caja {
         }
     }
 
-    public void AgregarBillete(List<Billete> billetes) {
+    public void AgregarBilletes(List<Billete> billetes) {
         for (Billete billete : billetes) {
             if(billete.getValor() != 0){
                 AgregarBillete(billete);
@@ -79,7 +79,7 @@ public class Caja {
 
             else{
                 // si resulta que el monto quedo negativo quiere decir que nos pasamos de largo y no se puede pagar
-                AgregarBillete(BilletesSeleccionados); // como el monto no se pago devuelvo los billetes a la list original
+                AgregarBilletes(BilletesSeleccionados); // como el monto no se pago devuelvo los billetes a la list original
                 BilletesSeleccionados.clear();
                 System.out.println("La cuenta no se puede pagar con los billetes en caja");
             }
