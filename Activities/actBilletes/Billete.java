@@ -3,6 +3,7 @@ package Activities.actBilletes;
 public class Billete {
     // Conjunto fijo de valores permitidos para la creación de billetes.
     // No se creó una clase específica ya que las denominaciones son pocas y estáticas.
+    // En este ejercicio si cree la clase billete aunque solo tenga valor porque podria tambien agregarse variables como tipo de moneda (peso, euro, dolar, etc)
     int[] denominaciones = {1,5,10,20,50,100};
     private int valor;
 
