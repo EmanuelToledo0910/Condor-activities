@@ -3,27 +3,26 @@ package Activities.actDigitoVerificador;
 import javax.lang.model.type.NullType;
 
 public class Operaciones {
+    // en un principio pense en una clase 'Numero' con un valor pero en tema de mantenibilidad era inncesaria
+    // mas pensando que era tener un objeto numero con un valor al que habia que acceder a cada rato
     public Operaciones (){}
 
-    private Numero InvertirNumero(Numero numero) {
-        int num = numero.getValor();
+    private int InvertirNumero(int numero) {
         int ValorResultado = 0;
-        while(num > 0){
-            int digito = num % 10;
+        while(numero > 0){
+            int digito = numero % 10;
             ValorResultado = ValorResultado * 10 + digito;
-            num= (int) num / 10;
+            numero= (int) numero / 10;
         }
 
-        Numero resultado = new Numero(ValorResultado);
-        return resultado;
+        return ValorResultado;
     }
 
-    private Numero MultiplicarPorSecuencia(Numero numero){
-        int num = numero.getValor();
+    private int MultiplicarPorSecuencia(int numero){
         int[] multiplicadores = {2,3,4,5,6,7};
 
         // paso el numero a string para trabajar mas facil con los indices
-        String strNumero = String.valueOf(num);
+        String strNumero = String.valueOf(numero);
         int ValorResultado = 0;
 
         for(int i = 0; i < strNumero.length(); i++){
@@ -34,38 +33,38 @@ public class Operaciones {
             int multiplicador = multiplicadores[i % multiplicadores.length];
             ValorResultado += digito * multiplicador;
         }
-        Numero resultado = new Numero(ValorResultado);
-        return resultado;
+
+        return ValorResultado;
     }
 
-    private Numero CalcularModuloOnce(Numero numero){
-        return new Numero(numero.getValor() % 11);
+    private int CalcularModuloOnce(int numero){
+        return numero % 11;
     }
 
-    private Numero RestarAOnce(Numero numero){
-        return new Numero(11 - numero.getValor());
+    private int RestarAOnce(int numero){
+        return 11 -numero;
     }
 
-    public int DefinirDigitoVerificador(Numero numero){
+    public int DefinirDigitoVerificador(int numero){
         // aca aplique un error de argumento aunque tambien se podria hacer de forma simple tomando el
         // numero.getValor() y pasarlo aplicarle el moduclo para pasar el valor a positivo
         try {
-            if (numero.getValor() < 0) {
+            if (numero < 0) {
                 throw new IllegalArgumentException("El numero debe ser positivo. \n");
             }
-            Numero invertido = InvertirNumero(numero);
-            Numero multiplicado = MultiplicarPorSecuencia(invertido);
-            Numero mod = CalcularModuloOnce(multiplicado);
-            Numero Resultado = RestarAOnce(mod);
+            int invertido = InvertirNumero(numero);
+            int multiplicado = MultiplicarPorSecuencia(invertido);
+            int mod = CalcularModuloOnce(multiplicado);
+            int Resultado = RestarAOnce(mod);
 
-            System.out.println("Invertido: " + invertido.getValor());
-            System.out.println("Multiplicado: " + multiplicado.getValor());
-            System.out.println("Módulo 11: " + mod.getValor());
-            System.out.println("Resultado final: " + Resultado.getValor());
+            System.out.println("Invertido: " + invertido);
+            System.out.println("Multiplicado: " + multiplicado);
+            System.out.println("Módulo 11: " + mod);
+            System.out.println("Resultado final: " + Resultado);
 
-            if (Resultado.getValor() == 11) return 0;
-            if (Resultado.getValor() == 10) return 1;
-            return Resultado.getValor();
+            if (Resultado == 11) return 0;
+            if (Resultado== 10) return 1;
+            return Resultado;
 
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
