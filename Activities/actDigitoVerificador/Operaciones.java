@@ -69,7 +69,7 @@ public class Operaciones {
 
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
-            return 0;
+            return -1;
         }
     }
 
