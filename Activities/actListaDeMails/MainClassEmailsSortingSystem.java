@@ -12,12 +12,12 @@ public class MainClassEmailsSortingSystem {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 
-        Email e1 = new Email("MailA","A b", sdf.parse("01/02/2015"));
-        Email e2 = new Email("MailB","A",sdf.parse("05/03/2015"));
-        Email e3 = new Email("MailC","B",sdf.parse("06/04/2015"));
-        Email e4 = new Email("MailD","A B",sdf.parse("08/09/2015"));
-        Email e5 = new Email("MailE","C",sdf.parse("07/11/2015"));
-        Email e6 = new Email("MailF","A C",sdf.parse("03/12/2015"));
+        Email e1 = new Email("MailA","A b", "10/02/2015");
+        Email e2 = new Email("MailB","A","05/03/2015");
+        Email e3 = new Email("MailC","B","06/04/2015");
+        Email e4 = new Email("MailD","A B","08/09/2015");
+        Email e5 = new Email("MailE","C","07/11/2015");
+        Email e6 = new Email("MailF","A C","03/12/2015");
 
 
         List<Email> emails = new ArrayList<Email>();
