@@ -13,11 +13,11 @@ public class EmailSortingSystem {
 
     // separo las intrucciones en una lista para ir cumpliendolas en orden
     private List<String> DefinirIntrsucciones(String instruccion) {
-            // filtro la lista para que no queden instrucciones vacias
-            return Arrays.stream(instruccion.split("\\|"))
-                    .filter(s -> !s.isBlank())
-                    .toList();
-        }
+        // filtro la lista para que no queden instrucciones vacias
+        return Arrays.stream(instruccion.split("\\|"))
+                .filter(s -> !s.isBlank())
+                .toList();
+    }
 
     private void CrearInstrucciones(List<String> instrucciones) {
         for (String inst : instrucciones) {
@@ -27,7 +27,9 @@ public class EmailSortingSystem {
 
             String instMayus = inst.toUpperCase();
 
-            // Validación de formato: opcional '!', seguido de letra, '-', y FIFO o LIFO
+            // meto una validacion de que la expresion este bien formulada '!' que puede estar o no
+            // [A-Z] que valida que haya una letra como flag
+            // y el -(FIFO|LIFO) que se asegura que termien en -FIFO o - LIFO
             if (!instMayus.matches("!?[A-Z]-(FIFO|LIFO)")) {
                 System.out.println("Instrucción ignorada por formato inválido: " + inst);
                 continue;
