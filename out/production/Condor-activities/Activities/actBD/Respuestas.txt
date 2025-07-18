@@ -14,6 +14,6 @@ eso verifica que el nombre de ciudades que tiene asociado cada uno sean iguales
 
 En el otro ejercicio de elegir la estructura de la BD para normalizar el nombre de la ciudad la mejor opcion seria
 el primer diagrama (A), ya que asocia bien tanto al projecto como al provedoor y remplaza lo que antes almacenaba el
-nombre de la ciudad por la FK de cityId. Ademas las otras opciones tienen errores conceptuales en los demas diagramas.
+nombre de la ciudad por la FK de cityId. Ademas las otras opciones tienen errores conceptuales en los diagramas.
 Por ejemplo en el B, la tabla de ciudades solo se asocia al SPP por lo que ni el proveedor ni el proyecto por si solo
 se sabe que ciudad tiene asociada

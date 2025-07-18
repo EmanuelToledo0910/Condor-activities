@@ -22,29 +22,19 @@ public class EmailSortingSystem {
     private void CrearInstrucciones(List<String> instrucciones) {
         for (String inst : instrucciones) {
             inst = inst.trim();
-            // Valido que la instruccion no haya quedado nula
-            if (inst == null) {
-                System.out.println("Instrucción nula ignorada");
-                continue;
-            }
 
             boolean excluir = inst.charAt(0) == '!';
-            int longituMinima = excluir ? 6 : 5; // defino la long minima de la instruccion
 
-            // valido que la instruccion sea suficiente
-            if(inst.length() < longituMinima) {
-                System.out.println("Instrucción ignorada por longitud insuficiente: " + inst);
-                continue;
-            }
+            String instMayus = inst.toUpperCase();
 
-            String tipoOrden = excluir ? inst.substring(3, 7) : inst.substring(2, 6).toUpperCase();
-            // Valido que el orden sea FIFO o LIFO
-            if (!tipoOrden.equals("FIFO") && !tipoOrden.equals("LIFO")) {
-                System.out.println("Instrucción ignorada por tipo de orden inválido: " + inst);
+            // Validación de formato: opcional '!', seguido de letra, '-', y FIFO o LIFO
+            if (!instMayus.matches("!?[A-Z]-(FIFO|LIFO)")) {
+                System.out.println("Instrucción ignorada por formato inválido: " + inst);
                 continue;
             }
 
             // guardo el flag de la intruccion para despuesr pasarlo a mayuscula
+            String tipoOrden = excluir ? inst.substring(3, 7) : inst.substring(2, 6);
             char flag = (excluir ? inst.charAt(1) : inst.charAt(0));
             this.instrucciones.add(new InstruccionParticular(excluir, Character.toUpperCase(flag), tipoOrden.toUpperCase()));
         }
