@@ -51,28 +51,15 @@ public class EmailSortingSystem {
     }
 
     private List<Email> OrdenarEmailsPorFecha(List<Email> emails, String TipoOrden) {
-        try {
-            if ((!TipoOrden.equals("FIFO")) && (!TipoOrden.equals("LIFO"))) {
-                throw new IllegalArgumentException("Tipo de orden incorrecto");
-            }
+        TipoOrdenamiento estrategia = null;
 
-            if (TipoOrden.equals("FIFO")) {
-                List<Email> emailsOrdenados = emails.stream()
-                        .sorted((e1, e2) -> e1.getFechaDeRecepcion().compareTo(e2.getFechaDeRecepcion()))
-                        .toList();
-                return emailsOrdenados;
-            } else if (TipoOrden.equals("LIFO")) {
-                List<Email> emailsOrdenados = emails.stream()
-                        .sorted((e1, e2) -> e2.getFechaDeRecepcion().compareTo(e1.getFechaDeRecepcion()))
-                        .toList();
-                return emailsOrdenados;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return null;
+        if (TipoOrden.equals("FIFO")) {
+            estrategia = new OrdenamientoFIFO();
+        } else if (TipoOrden.equals("LIFO")) {
+            estrategia = new OrdenamientoLIFO();
         }
 
-        return null;
+        return estrategia.ordenarEmails(emails);
     }
 
     public List<Email> OrdenarEmails (List<Email> Emails, String Instrucciones){

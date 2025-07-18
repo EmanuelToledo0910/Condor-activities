@@ -12,7 +12,7 @@ public class MainClassEmailsSortingSystem {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 
-        Email e1 = new Email("MailA","A b", "10/02/2015");
+        Email e1 = new Email("MailA","A B", "10/02/2015");
         Email e2 = new Email("MailB","A","05/03/2015");
         Email e3 = new Email("MailC","B","06/04/2015");
         Email e4 = new Email("MailD","A B","08/09/2015");
